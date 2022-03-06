@@ -1,0 +1,8 @@
+# data file for mongodb
+mongodb/
+
+# env file
+dev/.env
+
+# mongo daemon configuration file
+conf/mongod.conf
