@@ -4,11 +4,9 @@ services:
     container_name: mongodb-m150
     image: mongo
     env_file: './dev/.env'
-    # command: 
-    #   - '--auth'
-    #   - '--config'
-    #   - '/etc/mongod.conf'
-    command: ["mongod", "--auth"]
+    # specify command or entrypoint should be okay
+    # command: ["mongod", "--auth"]
+    entrypoint: ["mongod", "--auth", "--config", "/etc/mongo/mongod.conf"]
     volumes:
       - ./conf:/etc/mongo
       - ./mongodb/database:/data/db
