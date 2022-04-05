@@ -6,11 +6,12 @@ services:
     env_file: './dev/.env'
     # specify command or entrypoint should be okay
     # command: ["mongod", "--auth"]
-    entrypoint: ["mongod", "--auth", "--config", "/etc/mongo/mongod.conf"]
+    command: ["--auth"]
     volumes:
       - ./conf:/etc/mongo
       - ./mongodb/database:/data/db
       - ./logs:/var/log/mongodb/
+      - ./scripts:/docker-entrypoint-initdb.d:ro
     ports:
       - 27020:27017
     restart: "no"
